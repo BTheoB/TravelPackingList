@@ -15,6 +15,10 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    PinyonScriptRegular: require('../assets/fonts/PinyonScript-Regular.ttf'),
+    RobotoRegular: require('../assets/fonts/roboto/Roboto-Regular.ttf'),
+    RobotoBold: require('../assets/fonts/roboto/Roboto-Bold.ttf'),
+    RobotoLight: require('../assets/fonts/roboto/Roboto-Light.ttf'),
   });
 
   useEffect(() => {
@@ -29,10 +33,7 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
+      <Stack screenOptions={{ headerShown: false, animation: 'none' }} />
       <StatusBar style="auto" />
     </ThemeProvider>
   );

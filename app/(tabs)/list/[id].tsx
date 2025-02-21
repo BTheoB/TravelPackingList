@@ -1,13 +1,18 @@
 import {StyleSheet} from 'react-native';
-
-
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import ListPrevisu from '@/components/ListPrevisu';
+import { ListElementType } from '../../types';
 
-export default function TabTwoScreen() {
+import { useLocalSearchParams } from 'expo-router';
+import ListElement from '@/components/ListElement';
+
+interface ListViewProps {
+  id: string;
+  elements: ListElementType[];
+}
+
+export default function ListView(Props: ListViewProps) { 
 
   //Potentiellement inverser l'ordre pour avoir les plus récents en premier
   const data = [
@@ -15,49 +20,19 @@ export default function TabTwoScreen() {
       id: 1,
       titre: 'Liste de course',
       date: '27-07-2000',
-    },
-    {
-      id: 2,
-      titre: 'Liste Voyage au Paradis',
-      date: '24-10-666',
-    },
-    {
-      id: 3,
-      titre: 'Item 3',
-      date: '2021-08-03',
-    },
-    {
-      id: 4,
-      titre: 'Item 3',
-      date: '2021-08-03',
-    },
-    {
-      id: 5,
-      titre: 'Item 3',
-      date: '2021-08-03',
-    },
-    {
-      id: 6,
-      titre: 'Item 3',
-      date: '2021-08-03',
     }
   ];
+
+  const { id } = useLocalSearchParams();
 
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
-      headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
-          style={styles.headerImage}
-        />
-      }>
+      >
       <ThemedView>
         <ThemedView style={[styles.titleContainer, {left:'15%', top:'12%'}]}>
           <ThemedText type="title">T</ThemedText>
-          <ThemedText style={{fontFamily:'RobotoRegular', fontSize: 25, paddingTop:7,}} type="subtitle">RAVEL</ThemedText>
+          <ThemedText style={{fontFamily:'RobotoRegular', fontSize: 25, paddingTop:7,}} type="subtitle">{id}</ThemedText>
         </ThemedView>
         <ThemedView style={[styles.titleContainer]}>
           <ThemedText type="title">P</ThemedText>
@@ -66,7 +41,7 @@ export default function TabTwoScreen() {
         </ThemedView>
       <ThemedView>
       {data.map((item) => (
-            <ListPrevisu key={item.id} titre={item.titre} id={item.id} />
+            <ListElement key={item.id} titre={item.titre} checked={false} />
       ))}
       </ThemedView>
       

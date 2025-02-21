@@ -32,6 +32,15 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+      "expo-font",
+        {
+          "fonts": ["./assets/fonts/roboto/Roboto-Regular.ttf",
+           "./assets/fonts/roboto/Roboto-Bold.ttf", 
+           "./assets/fonts/PinyonScript-Regular.ttf",
+           "./assets/fonts/roboto/Roboto-Light.ttf"]
+        }
       ]
     ],
     "experiments": {

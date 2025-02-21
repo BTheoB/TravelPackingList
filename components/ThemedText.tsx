@@ -2,6 +2,8 @@ import { Text, type TextProps, StyleSheet } from 'react-native';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
 
+import { useFonts } from 'expo-font';
+
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
@@ -35,22 +37,32 @@ export function ThemedText({
 
 const styles = StyleSheet.create({
   default: {
+    fontFamily:'RobotoRegular',
     fontSize: 16,
     lineHeight: 24,
+    color: '#11181C',
   },
   defaultSemiBold: {
+    fontFamily:'RobotoBold',
     fontSize: 16,
     lineHeight: 24,
     fontWeight: '600',
+    color: '#11181C',
   },
   title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    lineHeight: 32,
+    fontFamily: 'PinyonScriptRegular',
+    fontSize: 50,
+    lineHeight: 28,
+    color:'#05AF63',
+    paddingRight:28,
+    paddingTop:25,
+    left:'7%'
   },
   subtitle: {
+    fontFamily:'RobotoBold',
     fontSize: 20,
     fontWeight: 'bold',
+    color:'#05AF63',
   },
   link: {
     lineHeight: 30,

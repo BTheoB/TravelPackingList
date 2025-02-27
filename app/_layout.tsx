@@ -33,8 +33,13 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack screenOptions={{ headerShown: false, animation: 'none' }} />
-      <StatusBar style="auto" />
+      <Stack screenOptions={{ animation: 'none', title:'', headerStyle: {
+      backgroundColor: '#EDEDE9',
+    },
+    headerTintColor: '#05AF63',
+    headerShadowVisible: false,
+    headerBackTitle: 'Retour',
+   }} />
     </ThemeProvider>
   );
 }

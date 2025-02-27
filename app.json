@@ -15,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.btheob.TravelPackingList"
     },
     "web": {
       "bundler": "metro",
@@ -34,17 +35,43 @@
         }
       ],
       [
-      "expo-font",
+        "expo-font",
         {
-          "fonts": ["./assets/fonts/roboto/Roboto-Regular.ttf",
-           "./assets/fonts/roboto/Roboto-Bold.ttf", 
-           "./assets/fonts/PinyonScript-Regular.ttf",
-           "./assets/fonts/roboto/Roboto-Light.ttf"]
+          "fonts": [
+            "./assets/fonts/roboto/Roboto-Regular.ttf",
+            "./assets/fonts/roboto/Roboto-Bold.ttf",
+            "./assets/fonts/PinyonScript-Regular.ttf",
+            "./assets/fonts/roboto/Roboto-Light.ttf"
+          ]
+        }
+      ],
+      [
+        "expo-sqlite",
+        {
+          "enableFTS": true,
+          "useSQLCipher": true,
+          "android": {
+            "enableFTS": false,
+            "useSQLCipher": false
+          },
+          "ios": {
+            "customBuildFlags": [
+              "-DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_SNAPSHOT=1"
+            ]
+          }
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "eb38ce0c-c7e7-49b5-bc93-81f097f460e0"
+      }
     }
   }
 }

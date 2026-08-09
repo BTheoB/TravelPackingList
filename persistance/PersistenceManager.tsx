@@ -17,7 +17,7 @@ export const createTable = async () => {
     PRIMARY KEY (idList,idSublist, idElem),
     FOREIGN KEY (idList, idSublist) REFERENCES subListes(idList, idSublist) ON DELETE CASCADE);
     `).catch((err) => {
-      console.log('err dans la cré  tion de la table ', err)
+      console.log('err dans la crétion de la table ', err)
     })
 };
 
@@ -34,33 +34,16 @@ export const initFirstUse = async () => {
 
     if (result == null || result == undefined) {
       await createTable();
-      await addList('VOYAGE AU COEUR DE THEO');
+      await addList('VOYAGE EN EUROPE');
       await addSubList(1, 'CLOTHES').then(() => {
         addElement(1, 1, 'PULL');
         addElement(1, 1, 'PANTALON');
         addElement(1, 1, 'PAIRE DE Dé');
-        addElement(1, 1, 'SAC REMPLIT DE BISOUX');
-        addElement(1, 1, 'MON PROPRE COEUR');
       });
       await addSubList(1, 'FOOD');
       addElement(1, 2, 'DATTES');
       addElement(1, 2, 'FROMAGE');
       addElement(1, 2, 'GNOCCHI');
-      await addSubList(1, 'LOVE');
-      addElement(1, 3, 'JE');
-      addElement(1, 3, 'T\'');
-      addElement(1, 3, 'AIME');
-      addElement(1, 3, 'MAYA');
-
-      await addSubList(1, 'NE PAS OUBLIER DE').then(() => {
-        addElement(1, 4, 'FAIRE DES CALINS à THEO');
-        addElement(1, 4, 'FAIRE DES BISOUS à THEO');
-        addElement(1, 4, 'RIGOLER AVEC THEO');
-        addElement(1, 4, 'DIRE THEO A THEO QUE TU L\'AIME');
-        addElement(1, 4, 'PRENDRE THEO EN CUILLIeRE');
-        addElement(1, 4, 'zEt si l\'envie vous en prend...');
-        addElement(1, 4, 'zFAIRE L\'AMOUR A THEO...');
-      });
       
       await addList('Liste de courses');
       await addSubList(2, 'Légumes');
@@ -70,7 +53,6 @@ export const initFirstUse = async () => {
       await addSubList(2, 'Fruits');
       addElement(2, 2, 'Pommes');
       addElement(2, 2, 'Clémentines');
-      addElement(2, 2, 'Maya la plus belle');
     }
 
   }).catch((err) => {
@@ -100,34 +82,18 @@ export const resetBase = async () => {
 
 export const initConextTest = async () => {
   await resetSchema().then(async () => {
-    await addList('VOYAGE AU COEUR DE THEO');
+    await addList('VOYAGE AU JAPON');
     
     await addSubList(1, 'CLOTHES').then(() => {
       addElement(1, 1, 'PULL');
       addElement(1, 1, 'PANTALON');
       addElement(1, 1, 'PAIRE DE Dé');
-      addElement(1, 1, 'SAC REMPLIT DE BISOUX');
-      addElement(1, 1, 'MON PROPRE COEUR');
     });
     await addSubList(1, 'FOOD');
     addElement(1, 2, 'DATTES');
     addElement(1, 2, 'FROMAGE');
     addElement(1, 2, 'GNOCCHI');
     await addSubList(1, 'LOVE');
-    addElement(1, 3, 'JE');
-    addElement(1, 3, 'T\'');
-    addElement(1, 3, 'AIME');
-    addElement(1, 3, 'MAYA');
-
-    await addSubList(1, 'NE PAS OUBLIER DE').then(() => {
-      addElement(1, 4, 'FAIRE DES CALINS à THEO');
-      addElement(1, 4, 'FAIRE DES BISOUS à THEO');
-      addElement(1, 4, 'RIGOLER AVEC THEO');
-      addElement(1, 4, 'DIRE THEO A THEO QUE TU L\'AIME');
-      addElement(1, 4, 'PRENDRE THEO EN CUILLIeRE');
-      addElement(1, 4, 'zEt si l\'envie vous en prend...');
-      addElement(1, 4, 'zFAIRE L\'AMOUR A THEO...');
-    });
     
     await addList('Liste de courses');
     await addSubList(2, 'Légumes');
@@ -137,7 +103,6 @@ export const initConextTest = async () => {
     await addSubList(2, 'Fruits');
     addElement(2, 2, 'Pommes');
     addElement(2, 2, 'Clémentines');
-    addElement(2, 2, 'Maya la plus belle');
   });
 };
 

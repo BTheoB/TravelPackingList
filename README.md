@@ -1,4 +1,4 @@
-# 📱 Application Gestionnaire de Liste
+# Application Gestionnaire de Liste
 
 Application mobile développée avec **React Native** et **Expo**, permettant de créer, gérer et organiser des listes directement depuis un appareil mobile.
 
